@@ -1,6 +1,8 @@
 # Guide pas-à-pas pour ajouter une nouvelle propriété personnalisée dans le Profil Utilisateur SharePoint Online
 
-Dans SharePoint Online, le Profil Utilisateur joue un rôle clé pour stocker et gérer les informations relatives aux utilisateurs. Bien que SharePoint Online offre un ensemble de propriétés prédéfinies, il est parfois nécessaire d'ajouter des propriétés personnalisées pour répondre aux besoins spécifiques de votre organisation. Dans cet article, nous allons vous guider à travers les étapes pour ajouter une nouvelle propriété personnalisée dans le Profil Utilisateur de SharePoint Online.
+Dans SharePoint Online, le Profil Utilisateur joue un rôle clé pour stocker et gérer les informations relatives aux utilisateurs.
+Bien que SharePoint Online offre un ensemble de propriétés prédéfinies, il est parfois nécessaire d'ajouter des propriétés personnalisées pour répondre aux besoins spécifiques de votre organisation
+Dans cet article, nous allons vous guider à travers les étapes pour ajouter une nouvelle propriété personnalisée dans le Profil Utilisateur de SharePoint Online.
 
 Dans le cadre de cet article, nous allons créer une nouvelle propriété utilisateur **Trigramme** qui est une chaine de 3 caractères reprenant les initiales de l'utilisateur.
 
@@ -53,7 +55,9 @@ Vous êtes alors redirigé vers la liste de l'ensemble des propriétés des **Pr
 
 ## Synchroniser les propriétés
 
-Après avoir ajouté une nouvelle propriété personnalisée, vous devez vous assurer que les profils utilisateurs sont synchronisés avec Active Directory. Comme mentionné précédemment, la synchronisation avec Azure Active Directory doit être réalisée via un script PowerShell. Plus d'informations disponibles sur cette partie ici : https://learn.microsoft.com/en-us/sharepoint/user-profile-sync
+Après avoir ajouté une nouvelle propriété personnalisée, vous devez vous assurer que les profils utilisateurs sont synchronisés avec Active Directory.
+Comme mentionné précédemment, la synchronisation avec Azure Active Directory doit être réalisée via un script PowerShell.
+Plus d'informations disponibles sur cette partie ici : https://learn.microsoft.com/en-us/sharepoint/user-profile-sync
 Cette étape spécifique fera l'objet d'un prochain article.
 
 Pour vous assurer que vos profils ont été correctement mis à jour suite à la synchronisation, il suffit d'aller voir les profils utilisateurs en cliquant sur **Gérer les profils utiliteur** depuis la page d'accueil des **Profils utilisateur**, de rechercher un profil puis de l'éditer en cliquant sur **Modifier mon profil** :
@@ -68,7 +72,8 @@ Ici, la propriété **Trigramme** de Adele Vance a été correctement valorisée
 
 ## Configurer l'indexation de la propriété personnalisée
 
-Dès lors qu'au moins un profil possède une valeur pour cette nouvelle propriété, SharePoint va automatiquement ajouter une propriété analysée au schéma de recherche du tenant correspondant à votre nouvelle propriété utilisateur. Attention, cette opération peut aller jusqu'à plusieurs heures d'attente, le temps que SharePoint détecte cette nouvelle metadonnée et l'ajoute dans le schéma de recherche.
+Dès lors qu'au moins un profil possède une valeur pour cette nouvelle propriété, SharePoint va automatiquement ajouter une propriété analysée au schéma de recherche du tenant correspondant à votre nouvelle propriété utilisateur.
+Attention, cette opération peut aller jusqu'à plusieurs heures d'attente, le temps que SharePoint détecte cette nouvelle metadonnée et l'ajoute dans le schéma de recherche.
 
 Pour accéder au schéma de recherche, depuis la page d'accueil d'accueil du Centre d'administration SharePoint Online, cliquez sur **Plus de fonctionnalités** dans le menu de gauche, puis sélectionnez sur le bouton **Ouvrir** de la section **Rechercher**.
 
@@ -85,9 +90,14 @@ Exemple ci-dessous avec la propriété analysée **People:Trigramme** qui a ét�
 
 Si votre propriété est bien présente ici, alors ça veut dire que sa valeur peut être correctement remontée dans les résultats de recherche.
 
-A noter que dans le schéma de recherche, la propriété personnalisée sera préfixée par **People:** afin de bien distinguer le fait que c'est une propriété issue du **Profil utilisateur**. Ce préfix correspond à la catégorie de la propriété analysée.
-Veuillez également noter que la propriété n'est, à ce stade, pas encore mappé à une propriété gérée. Cette étape sera détaillée dans un prochain article.
+A noter que dans le schéma de recherche, la propriété personnalisée sera préfixée par **People:** afin de bien distinguer le fait que c'est une propriété issue du **Profil utilisateur**.
+Ce préfix correspond à la catégorie de la propriété analysée.
+Veuillez également noter que la propriété n'est, à ce stade, pas encore mappé à une propriété gérée.
+Cette étape sera détaillée dans un prochain article.
 
 ## Conclusion
 
-En suivant les étapes décrites ci-dessus, vous pouvez facilement ajouter une propriété personnalisée au Profil Utilisateur de SharePoint Online et la configurer pour qu'elle remonte dans les résultats de recherche. Cette fonctionnalité offre une meilleure recherche et une utilisation plus efficace des informations utilisateur dans votre environnement SharePoint Online. N'oubliez pas de synchroniser les profils utilisateurs avec Azure Active Directory et de configurer l'indexation appropriée pour que la propriété personnalisée soit pleinement fonctionnelle. Profitez de cette personnalisation pour améliorer la pertinence des résultats de recherche dans votre organisation.
+En suivant les étapes décrites ci-dessus, vous pouvez facilement ajouter une propriété personnalisée au Profil Utilisateur de SharePoint Online et la configurer pour qu'elle remonte dans les résultats de recherche.
+Cette fonctionnalité offre une meilleure recherche et une utilisation plus efficace des informations utilisateur dans votre environnement SharePoint Online.
+N'oubliez pas de synchroniser les profils utilisateurs avec Azure Active Directory et de configurer l'indexation appropriée pour que la propriété personnalisée soit pleinement fonctionnelle.
+Profitez de cette personnalisation pour améliorer la pertinence des résultats de recherche dans votre organisation.
